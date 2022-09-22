@@ -4,6 +4,6 @@ node {
         checkout scm
     }
     stage('Test image') {
-        withDockerContainer("tag1/httpd"){ sh "echo 'hello world'" }
+        withDockerContainer("httpd"){ sh "echo 'hello world'" }
     }
 }
