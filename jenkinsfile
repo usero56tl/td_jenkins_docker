@@ -1,12 +1,12 @@
 node {
     def app
-    stages('Clone') {
+    stage('Clone') {
         checkout scm
     }
-    stages('Build') {
+    stage('Build') {
         app = docker.build("tag1/httpd")
     }
-    stages('Test image') {
+    stage('Test image') {
         withDockerContainer("tag1/httpd"){ sh "echo 'hello world'" }
     }
 }
