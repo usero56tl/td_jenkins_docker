@@ -3,9 +3,6 @@ node {
     stage('Clone') {
         checkout scm
     }
-    stage('Build') {
-        app = docker.build("tag1/httpd")
-    }
     stage('Test image') {
         withDockerContainer("tag1/httpd"){ sh "echo 'hello world'" }
     }
